@@ -1,0 +1,52 @@
+{{!-- {{#if removedUser}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  Task has been removed.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}} --}}
+
+<div class="row">
+  <div class="col-6">
+    <h1>Tasks</h1>
+  </div>
+  <div class="col-6 d-flex justify-content-end">
+    <a href="/adduser" type="button" class="btn btn-primary align-self-center">+ add task</a>
+  </div>
+</div>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Task Name</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Status</th>
+      <th scope="col">Created Date</th>
+      <th scope="col">Last Date</th>
+      <th scope="col" class="text-end">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {{#each rows}}
+    <tr>
+      <th scope="row">{{this.task_id}}</th>
+      <td>{{this.task_name}}</td>
+      <td>{{this.priority}}</td>
+      <td>{{this.status}}</td>
+      <td>{{this.created_time}}</td>
+      <td>{{this.last_date}}</td>
+      <td class="text-end">
+        <a href="/viewuser/{{this.task_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
+        <a href="/edituser/{{this.task_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>
+          Edit</a>
+        <a href="/{{this.task_id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a>
+        <a href="/deadline/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eyedropper"></i> Deadline</a>
+        <a href="/priority/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-plus"></i> Priority</a>
+        <a href="/complete/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-folder"></i> Complete/incomplete</a>
+      </td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>

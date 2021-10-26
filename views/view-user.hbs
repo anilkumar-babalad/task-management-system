@@ -1,0 +1,50 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View Task</li>
+  </ol>
+</nav>
+
+<div class="view-user p-5">
+  {{#each rows}}
+  <div class="row mb-5">
+    <div class="col text-center">
+      <h3>{{this.task_name}} {{this.priority}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Task Name</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Status</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Last Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{this.task_name}}</th>
+            <td>{{this.priority}}</td>
+            <td>{{this.status}}</td>
+            <td>{{this.Created_time}}</td>
+            <td>{{this.last_date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    {{!-- <div class="row">
+      <div class="col">
+        <b>Comments</b>
+      </div>
+    </div> --}}
+    {{!-- <div class="row">
+      <div class="col">
+        {{this.comments}}
+      </div>
+    </div> --}}
+  </div>
+  {{/each}}
+</div>

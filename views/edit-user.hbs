@@ -1,6 +1,6 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/login">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Edit Task</li>
   </ol>
 </nav>
@@ -14,6 +14,27 @@
 
 {{#each rows}}
 <form class="row g-3 needs-validation" method="POST" action="/edituser/{{this.task_id}}" novalidate> 
-  {{> user-form}}
+   {{!-- {{> user-form}}  --}}
+  <div class="col-12">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" value="{{this.task_name}}" placeholder="Task Name" name="task_name">
+      <label for="floatingInput">Task Name</label>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" value="{{this.priority}}" placeholder="priority" name="priority">
+      <label for="floatingInput">priority</label>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="floatingInput" value="{{this.status}}" placeholder="complete/incomplete" name="status">
+      <label for="floatingInput">status</label>
+    </div>
+  </div>
+  <div class="col-12 d-grid">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
 </form>
 {{/each}}
